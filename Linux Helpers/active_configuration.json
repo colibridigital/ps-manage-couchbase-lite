@@ -1,0 +1,24 @@
+{
+  "logging": {
+    "console": {
+      "log_keys": [
+        "*"
+      ]
+    }
+  },
+  "databases": {
+    "daisychaining": {
+      "server": "walrus:.",
+      "users": {
+        "GUEST": {
+          "disabled": false,
+          "admin_channels": [
+            "*"
+          ]
+        }
+      },
+      "allow_conflicts": false,
+      "revs_limit": 20
+    }
+  }
+}
