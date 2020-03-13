@@ -1,0 +1,1022 @@
+{
+	"info": {
+		"_postman_id": "6518f7e8-0998-4548-925a-eee0c7b3b20c",
+		"name": "SyncGateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Public API",
+			"item": [
+				{
+					"name": "Hello World",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4984/daisychaining/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new document",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"myfirstdocument\",\n\t\"firstname\": \"Susan\",\n\t\"lastname\": \"Climber\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4984/daisychaining/",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all docs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4984/daisychaining/_all_docs?include_docs=true",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								"_all_docs"
+							],
+							"query": [
+								{
+									"key": "include_docs",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a document",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"myfirstdocument\",\n\t\"_rev\": \"1-dfda919503bd7ccd44d80e4b52dadd02\",\n\t\"firstname\": \"Luca\",\n\t\"lastname\": \"Christille\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4984/daisychaining/myfirstdocument",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								"myfirstdocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a specified document",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4984/daisychaining/myfirstdocument?_rev=1-dfda919503bd7ccd44d80e4b52dadd02",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								"myfirstdocument"
+							],
+							"query": [
+								{
+									"key": "_rev",
+									"value": "1-dfda919503bd7ccd44d80e4b52dadd02"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a specified document",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4984/daisychaining/myfirstdocument?rev=1-dfda919503bd7ccd44d80e4b52dadd02",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								"myfirstdocument"
+							],
+							"query": [
+								{
+									"key": "rev",
+									"value": "1-dfda919503bd7ccd44d80e4b52dadd02"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Admin API",
+			"item": [
+				{
+					"name": "Retrieve configuration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4985/daisychaining/_config",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychaining",
+								"_config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Changes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4985/daisychaining/_changes",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychaining",
+								"_changes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Changes since last seq",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4985/daisychaining/_changes?include_docs=true&since=3",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychaining",
+								"_changes"
+							],
+							"query": [
+								{
+									"key": "include_docs",
+									"value": "true"
+								},
+								{
+									"key": "since",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring Database Offline",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4985/daisychainingprod/_offline",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychainingprod",
+								"_offline"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bring Database Online",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4985/daisychainingprod/_online",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychainingprod",
+								"_online"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Channels",
+			"item": [
+				{
+					"name": "Create a climber review document",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"pathreview1\",\n\t\"type\": \"path-review\",\n\t\"owner\": \"susan\",\n\t\"review\": \"very easy, short but nice\",\n\t\"path_code\": \"tortilla::yukon::canada\",\n\t\"rating\": 3.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychaining/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a check-in log",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"checkinlog1\",\n\t\"type\": \"checkin-log\",\n\t\"climber\": \"susan\",\n\t\"pathgate\": \"tortilla::yukan::canada-01\",\n\t\"timestamp\": 1579093807\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychaining/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Re-Sync Documents",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:4985/daisychainingprod/_resync",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychainingprod",
+								"_resync"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tombstones",
+			"item": [
+				{
+					"name": "Create a simple document",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"simpleDocument\",\n\t\"daisychaining\": \"not_yet_removed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4984/daisychaining/",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the simple document",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4984/daisychaining/simpleDocument?rev=1-dbbd4adce4d4e2c20a24f5cdc84a98ec",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								"simpleDocument"
+							],
+							"query": [
+								{
+									"key": "rev",
+									"value": "1-dbbd4adce4d4e2c20a24f5cdc84a98ec"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the simple document",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4984/daisychaining/simpleDocument",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								"simpleDocument"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the first revision of simple document",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4984/daisychaining/simpleDocument?rev=1-dbbd4adce4d4e2c20a24f5cdc84a98ec",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychaining",
+								"simpleDocument"
+							],
+							"query": [
+								{
+									"key": "rev",
+									"value": "1-dbbd4adce4d4e2c20a24f5cdc84a98ec"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simple document's revision tree",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4985/daisychaining/_raw/simpleDocument",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychaining",
+								"_raw",
+								"simpleDocument"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Revision Tree",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Purge Document",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"myfirstdocument\": [\n        \"*\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4985/daisychaining/_purge",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychaining",
+								"_purge"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Create a user with Basic Authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"kumail\",\n  \"password\": \"climbersrocks!\",\n  \"admin_channels\": [\n    \"users\"\n  ],\n  \"admin_roles\": [\n    \"climber\"\n  ],\n  \"email\": \"kumail@email.com\",\n  \"disabled\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4985/daisychaining/_user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychaining",
+								"_user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Production",
+			"item": [
+				{
+					"name": "Climbers: Create Susan user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"susan\",\n  \"password\": \"climbersrocks!\",\n  \"admin_channels\": [\n    \"path_reviews\"\n  ],\n  \"email\": \"susan@email.com\",\n  \"disabled\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4985/daisychainingprod/_user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychainingprod",
+								"_user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Climbers: Login in as Susan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"susan\",\n\t\"password\": \"climbersrocks!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychainingprod/_session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychainingprod",
+								"_session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Climbers: Create Susan profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"profile::susan\",\n\t\"type\": \"user-profile\",\n\t\"firstname\": \"Susan\",\n\t\"lastname\": \"Jackson\",\n\t\"region\": \"us-east\",\n\t\"username\": \"susan\",\n\t\"birthdate\": \"1986-05-05\",\n\t\"channels\": [\"path_reviews_us-east\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychainingprod/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychainingprod",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Climbers: Submit Susan path review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"pathreview::susan::d23nda7s4\",\n\t\"region\": \"us-east\",\n\t\"owner\": \"susan\",\n\t\"type\": \"path-review\",\n\t\"path_code\": \"tortilla::yukon::canada\",\n\t\"title\": \"Enchanting path\",\n\t\"description\": \"This is an awesome path for beginners, there are some minor difficult points, but the landscape you can see from the top is enchanting.\",\n\t\"rating\": 4.3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychainingprod/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychainingprod",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Roles: Create climbers role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"climbers\",\n\t\"admin_channels\": [\n\t\t\"path_reviews\"\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4985/daisychainingprod/_role/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychainingprod",
+								"_role",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Roles: Create pathgates role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"pathgates\",\n\t\"admin_channels\": [\n\t\t\"path_checkins\"\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4985/daisychainingprod/_role/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychainingprod",
+								"_role",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Roles: Create Tortilla Path Gate user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"tortillagate\",\n  \"password\": \"yukon::canada\",\n  \"admin_roles\": [\n  \t\"pathgates\"\n  ],\n  \"email\": \"susan@email.com\",\n  \"disabled\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4985/daisychainingprod/_user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4985",
+							"path": [
+								"daisychainingprod",
+								"_user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadAccess: Login in as Tortilla Path Gate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"tortillagate\",\n\t\"password\": \"yukon::canada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychainingprod/_session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychainingprod",
+								"_session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadAccess: Create a path checkin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"tortillagate::checkin::1582838436\",\n\t\"type\": \"path_checkin\",\n\t\"gate_user\": \"tortillagate\",\n\t\"climber_user\": \"kumail\",\n\t\"timestamp\": 1582838436\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychainingprod/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychainingprod",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadAccess: Get path check-in",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychainingprod/tortillagate::checkin::1582838436",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychainingprod",
+								"tortillagate::checkin::1582838436"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadAccess: Login in as Susan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"susan\",\n\t\"password\": \"climbersrocks!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4984/daisychainingprod/_session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4984",
+							"path": [
+								"daisychainingprod",
+								"_session"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
